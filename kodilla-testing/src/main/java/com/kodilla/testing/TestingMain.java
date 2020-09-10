@@ -21,8 +21,7 @@ public class TestingMain {
 
         if((testCalculator.addAtoB(140, 60)==204) && (testCalculator.substractBfromA(140, 60)==80)) {
             System.out.println("Test ok");
-        }
-        else {
+        } else {
             System.out.println("Test failed");
         }
     }
