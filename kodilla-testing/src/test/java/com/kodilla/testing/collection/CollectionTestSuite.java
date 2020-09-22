@@ -26,7 +26,7 @@ public class CollectionTestSuite {
         normalList.add(13);
         normalList.add(3);
         normalList.add(5);
-        normalList.add(5);
+        normalList.add(7);
         normalList.add(8);
 
         List<Integer> expectedResult = Arrays.asList(8);
@@ -40,15 +40,11 @@ public class CollectionTestSuite {
 
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
 
-    emptyList.add(3);
-    emptyList.add(5);
     emptyList.add(6);
-    emptyList.add(16);
-    emptyList.add(102);
-    emptyList.add(4380);
+
 
         List<Integer> actualResult = oddNumbersExterminator.exterminate(emptyList);
-        Assertions.assertEquals(Arrays.asList(6, 16, 102, 4380), actualResult);
+        Assertions.assertEquals(Arrays.asList(6), actualResult);
 
 }
 }
