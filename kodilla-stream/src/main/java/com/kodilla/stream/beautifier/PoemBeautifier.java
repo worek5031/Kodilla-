@@ -1,8 +1,8 @@
 package com.kodilla.stream.beautifier;
 
 public class PoemBeautifier {
-    public void beautify(String poemDecorator, String text) {
-        String result = (poemDecorator + text);
-        System.out.println("Nowe słowo" + " " + result);
+    public void beautify(String text, PoemDecorator poemDecorator) {
+        String result = poemDecorator.decorate(text);
+        System.out.println("Upiększony tekst" + " " + result);
     }
 }

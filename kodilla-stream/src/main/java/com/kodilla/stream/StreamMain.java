@@ -1,10 +1,14 @@
-import com.kodilla.stream.book.BookDirectory;
+package com.kodilla.stream;
+
+
+import com.kodilla.stream.beautifier.PoemBeautifier;
 
 public class StreamMain {
     public static void main(String[] args) {
-        BookDirectory theBookDirectory = new BookDirectory();
-        theBookDirectory.getList().stream()
-                .filter(book -> book.getYearOfPublication() > 2005)
-                .forEach(System.out::println);
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        poemBeautifier.beautify("Kot", (text)-> text + "aklizm");
+        poemBeautifier.beautify("Kocio", (text)->text+"kwik");
+        poemBeautifier.beautify("Kasztan",(text)->text.toUpperCase());
+
     }
 }

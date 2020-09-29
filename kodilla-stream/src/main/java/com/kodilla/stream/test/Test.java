@@ -1,6 +1,7 @@
 package com.kodilla.stream.test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 interface Shape {
 
@@ -11,10 +12,20 @@ interface Shape {
 
 class Circle implements Shape {
 
+    public String getShapeName() {
+        return "Test";
+    }
+    public int getField() {
+        return 3333;
+    }
+}
+
+class Shapes implements Shape {
     private String name;
     private int field;
 
-    public Circle(String name, int field) {
+
+    public Shapes(String name, int field) {
         this.name = name;
         this.field = field;
     }
@@ -25,42 +36,23 @@ class Circle implements Shape {
     public int getField() {
         return this.field;
     }
-}
 
+}
 class Square implements Shape {
-    private String name;
-    private int field;
-
-
-    public Square(String name, int field) {
-        this.name = name;
-        this.field = field;
-
-    }
-
     public String getShapeName() {
-        return this.name;
+        return "Square";
     }
     public int getField() {
-        return this.field;
+        return 55;
     }
-
 }
-
 class Triangle implements Shape {
-    private String name;
-    private int field;
 
-    public Triangle(String name, int field) {
-        this.name = name;
-        this.field = field;
-    }
-
-    public String getShapeName() {
-        return this.name;
+        public String getShapeName() {
+        return "Triangle";
     }
     public int getField() {
-        return this.field;
+        return 345;
     }
 }
 
@@ -72,6 +64,9 @@ class ShapeCollector {
     public void addFigure(Shape shape) {
         figureList.add(shape);
     }
+    public void removeFigure(int n) {
+        figureList.remove(n);
+    }
 
 }
 
@@ -81,18 +76,26 @@ class Application {
 
         ShapeCollector shapeCollector = new ShapeCollector();
 
-        List<Shape> figureList = new ArrayList<>();
+        shapeCollector.addFigure(new Circle());
+        shapeCollector.addFigure(new Square());
+        shapeCollector.addFigure(new Triangle());
+        shapeCollector.addFigure(new Shapes("Rectangle", 66));
 
-        shapeCollector.addFigure(new Circle("Circle", 43));
-        shapeCollector.addFigure(new Square("Square", 32));
-        shapeCollector.addFigure(new Triangle("Triangle", 34));
+        System.out.println("Liczba elementów kolekcji:");
 
+        System.out.println(shapeCollector.figureList.size());
 
-        System.out.println(figureList.size());
+        System.out.println("Elementy w kolekcji:");
 
-        for(Shape list: figureList) {
+        for(Shape list: shapeCollector.figureList) {
             System.out.println(list.getShapeName() + " " + list.getField());
         }
+        shapeCollector.removeFigure(0);
 
+        System.out.println("Usuwam elementy");
+
+        for(Shape list: shapeCollector.figureList) {
+            System.out.println(list.getShapeName() + " " + list.getField());
+        }
     }
 }
