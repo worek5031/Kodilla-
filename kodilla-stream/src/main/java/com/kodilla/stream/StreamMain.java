@@ -32,17 +32,17 @@ public class StreamMain {
 
 
 
-        Europe.addCountry(Poland);
-        Europe.addCountry(Italy);
-        Europe.addCountry(Germany);
+        Europe.addContinent(Poland);
+        Europe.addContinent(Italy);
+        Europe.addContinent(Germany);
 
-        Asia.addCountry(China);
-        Asia.addCountry(India);
-        Asia.addCountry(Indonesia);
+        Asia.addContinent(China);
+        Asia.addContinent(India);
+        Asia.addContinent(Indonesia);
 
-        Africa.addCountry(RSA);
-        Africa.addCountry(Morocco);
-        Africa.addCountry(Angola);
+        Africa.addContinent(RSA);
+        Africa.addContinent(Morocco);
+        Africa.addContinent(Angola);
 
 
         System.out.println(world.getWorldPopulation());

@@ -38,24 +38,24 @@ public class WorldTestSuite {
         //Add countries to continents
 
 
-        Europe.addCountry(Poland);
-        Europe.addCountry(Italy);
-        Europe.addCountry(Germany);
+        Europe.addContinent(Poland);
+        Europe.addContinent(Italy);
+        Europe.addContinent(Germany);
 
-        Asia.addCountry(China);
-        Asia.addCountry(India);
-        Asia.addCountry(Indonesia);
+        Asia.addContinent(China);
+        Asia.addContinent(India);
+        Asia.addContinent(Indonesia);
 
-        Africa.addCountry(RSA);
-        Africa.addCountry(Morocco);
-        Africa.addCountry(Angola);
+        Africa.addContinent(RSA);
+        Africa.addContinent(Morocco);
+        Africa.addContinent(Angola);
 
 
         //Then
         BigDecimal pop = world.getContinents().stream()
                     .flatMap(continent -> continent.getCountries().stream())
                     .map(countries -> countries.getPopulation())
-                    .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         Assert.assertEquals(new BigDecimal("3812000000"), pop);
 

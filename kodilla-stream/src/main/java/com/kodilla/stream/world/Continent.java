@@ -19,11 +19,11 @@ public final class Continent {
         return new LinkedList<>(countries);
     }
 
-    public void addCountry(Country country) {
+    public void addContinent(Country country) {
         countries.add(country);
     }
 
-    public boolean removeCountry(Country country) {
+    public boolean removeContinent(Country country) {
         return countries.remove(country);
     }
 }
