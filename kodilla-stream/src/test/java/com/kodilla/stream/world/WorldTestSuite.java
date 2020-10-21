@@ -30,32 +30,29 @@ public class WorldTestSuite {
 
         World world = new World();
 
-        world.addWorld(Europe);
-        world.addWorld(Africa);
-        world.addWorld(Asia);
+        world.addContinent(Europe);
+        world.addContinent(Africa);
+        world.addContinent(Asia);
 
         //When
         //Add countries to continents
 
 
-        Europe.addContinent(Poland);
-        Europe.addContinent(Italy);
-        Europe.addContinent(Germany);
+        Europe.addCountry(Poland);
+        Europe.addCountry(Italy);
+        Europe.addCountry(Germany);
 
-        Asia.addContinent(China);
-        Asia.addContinent(India);
-        Asia.addContinent(Indonesia);
+        Asia.addCountry(China);
+        Asia.addCountry(India);
+        Asia.addCountry(Indonesia);
 
-        Africa.addContinent(RSA);
-        Africa.addContinent(Morocco);
-        Africa.addContinent(Angola);
+        Africa.addCountry(RSA);
+        Africa.addCountry(Morocco);
+        Africa.addCountry(Angola);
 
 
         //Then
-        BigDecimal pop = world.getContinents().stream()
-                    .flatMap(continent -> continent.getCountries().stream())
-                    .map(countries -> countries.getPopulation())
-                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal pop = world.getWorldPopulation();
 
         Assert.assertEquals(new BigDecimal("3812000000"), pop);
 

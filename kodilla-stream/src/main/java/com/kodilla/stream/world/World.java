@@ -12,11 +12,11 @@ public final class World {
         return continents;
     }
 
-    public void addWorld(Continent continent) {
+    public void addContinent(Continent continent) {
         continents.add(continent);
     }
 
-    public boolean removeWorld(Continent continent) {
+    public boolean removeContinent(Continent continent) {
         return continents.remove(continent);
     }
 
@@ -40,6 +40,6 @@ public final class World {
         return continents.stream()
                 .flatMap(continent -> continent.getCountries().stream())
                 .map(countries -> countries.getPopulation())
-                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

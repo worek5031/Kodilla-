@@ -26,23 +26,23 @@ public class StreamMain {
 
         World world = new World();
 
-        world.addWorld(Europe);
-        world.addWorld(Africa);
-        world.addWorld(Asia);
+        world.addContinent(Europe);
+        world.addContinent(Africa);
+        world.addContinent(Asia);
 
 
 
-        Europe.addContinent(Poland);
-        Europe.addContinent(Italy);
-        Europe.addContinent(Germany);
+        Europe.addCountry(Poland);
+        Europe.addCountry(Italy);
+        Europe.addCountry(Germany);
 
-        Asia.addContinent(China);
-        Asia.addContinent(India);
-        Asia.addContinent(Indonesia);
+        Asia.addCountry(China);
+        Asia.addCountry(India);
+        Asia.addCountry(Indonesia);
 
-        Africa.addContinent(RSA);
-        Africa.addContinent(Morocco);
-        Africa.addContinent(Angola);
+        Africa.addCountry(RSA);
+        Africa.addCountry(Morocco);
+        Africa.addCountry(Angola);
 
 
         System.out.println(world.getWorldPopulation());
