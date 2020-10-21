@@ -57,7 +57,7 @@ public class WorldTestSuite {
                     .map(countries -> countries.getPopulation())
                     .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
 
-        Assert.assertEquals(new BigDecimal("2790000000"), pop);
+        Assert.assertEquals(new BigDecimal("3812000000"), pop);
 
         }
 
