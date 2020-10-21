@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class FileReader {
     public void readFile()  {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("names.txt").getFile());
+        File file = new File(classLoader.getResource("names").getFile());
         Path path = Paths.get(file.getPath());
         try {
 

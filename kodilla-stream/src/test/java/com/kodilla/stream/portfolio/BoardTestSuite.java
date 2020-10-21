@@ -30,7 +30,7 @@ public class BoardTestSuite {
         //Tasks
         Task task1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
-                        "the temperaure from external service",
+                        "the temperature from external service",
                 user1,
                 user2,
                 LocalDate.now().minusDays(20),
