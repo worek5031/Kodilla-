@@ -1,4 +1,4 @@
-package com.kodilla.stream.patterns;
+package com.kodilla.good.patterns;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MovieStore {
 
-    public static Map<String, List<String>> getMovies() {
+    public Map<String, List<String>> getMovies() {
         List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
