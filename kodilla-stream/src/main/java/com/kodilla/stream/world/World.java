@@ -33,12 +33,14 @@ public final class World {
     public List<String> getListOfCountries() {
         return continents.stream()
                 .flatMap(continent -> continent.getCountries().stream())
+                .filter(countries -> countries.getPopulation().compareTo(BigDecimal.valueOf(50000000)) == -1)
                 .map(Country::getCountry)
                 .collect(Collectors.toList());
     }
     public BigDecimal getWorldPopulation() {
         return continents.stream()
                 .flatMap(continent -> continent.getCountries().stream())
+                .filter(countries -> countries.getPopulation().compareTo(BigDecimal.valueOf(50000000)) == 1)
                 .map(countries -> countries.getPopulation())
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }

@@ -36,16 +36,17 @@ public class CollectionTestSuite {
     @Test
     void testOddNumbersExterminatorEmptyList() {
 
-    OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
 
-    emptyList.add(6);
+        emptyList.add(null);
+
 
 
         List<Integer> actualResult = oddNumbersExterminator.exterminate(emptyList);
-        Assertions.assertEquals(Arrays.asList(6), actualResult);
+        Assertions.assertEquals(Arrays.asList(null), actualResult);
 
-}
+    }
 }
 
