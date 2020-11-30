@@ -1,16 +1,15 @@
-import com.kodilla.good.patterns.MovieStore;
-
-import java.util.stream.Collectors;
+import com.kodilla.good.patterns.challenge.*;
 
 public class GoodPatternsMain {
 
     public static void main(String[] args) {
-        MovieStore movieStore = new MovieStore();
-        String result = movieStore.getMovies().entrySet().stream()
-                .flatMap(s->s.getValue().stream())
-                .collect(Collectors.joining("!", "",""));
 
-        System.out.println(result);
+        ProductOrderRetriever orderRetriever = new ProductOrderRetriever();
+        ProductOrder productOrder = orderRetriever.retrieve();
 
-          }
+        OrderProcessor orderProcessor = new OrderProcessor(new InformationService(), new ProductOrder(productOrder.getUser(), productOrder.getOrderDate(), productOrder.getProduct(), productOrder.getQuantity()), new OrderRepository());
+
+        orderProcessor.process(productOrder);
+    }
+
 }
