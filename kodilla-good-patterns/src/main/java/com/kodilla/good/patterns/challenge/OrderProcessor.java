@@ -2,24 +2,28 @@ package com.kodilla.good.patterns.challenge;
 
 public class OrderProcessor {
 
-    public InformationService informationService;
-    public ProductOrder productOrder;
-    public OrderRepository orderRepository;
+    public InfoGeneral infoGeneral;
+    public RepoGeneral repoGeneral;
+    public OrderServiceGeneral orderServiceGeneral;
 
-    public OrderProcessor(final InformationService informationService, final ProductOrder productOrder, final OrderRepository orderRepository) {
-        this.informationService = informationService;
-        this.orderRepository = orderRepository;
-        this.productOrder = productOrder;
+    public OrderProcessor(InfoGeneral infoGeneral, OrderServiceGeneral orderServiceGeneral, RepoGeneral repoGeneral) {
+        this.infoGeneral = infoGeneral;
+        this.orderServiceGeneral = orderServiceGeneral;
+        this.repoGeneral = repoGeneral;
+
     }
 
     public OrderDto process(final ProductOrder productOrder) {
-        boolean isOrdered = ProductOrderService.order(productOrder.getUser(), productOrder.getOrderDate(), productOrder.getProduct(), productOrder.getQuantity());
+        boolean isOrdered = orderServiceGeneral.order(productOrder.getUser(), productOrder.getOrderDate(), productOrder.getProduct(), productOrder.getQuantity());
         if (isOrdered) {
-            InformationService.informUser();
-            OrderRepository.ordered(productOrder.getUser(), productOrder.getOrderDate(), productOrder.getProduct(), productOrder.getQuantity());
+            infoGeneral.informUser();
+            repoGeneral.ordered(productOrder.getUser(), productOrder.getOrderDate(), productOrder.getProduct(), productOrder.getQuantity());
 
+            return new OrderDto(productOrder.getUser(), true);
+        } else {
+            return new OrderDto(productOrder.getUser(), false);
         }
-        return new OrderDto(productOrder.getUser(), productOrder.getProduct());
+
     }
 
 }

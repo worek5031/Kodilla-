@@ -3,18 +3,18 @@ package com.kodilla.good.patterns.challenge;
 public class OrderDto {
 
     public User user;
-    public String product;
+    public boolean isRented;
 
-    public OrderDto(final User user, final String product) {
+    public OrderDto(final User user, final boolean isRented) {
         this.user = user;
-        this.product = product;
+        this.isRented = isRented;
     }
 
     public User getUser() {
         return user;
     }
 
-    public String getProduct() {
-        return product;
+    public boolean getIsRented() {
+        return true;
     }
 }

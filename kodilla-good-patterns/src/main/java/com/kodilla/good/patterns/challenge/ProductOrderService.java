@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.challenge;
 
 import java.time.LocalDateTime;
 
-public class ProductOrderService {
+public class ProductOrderService implements OrderServiceGeneral {
 
-    public static boolean order(final User user, final LocalDateTime orderDate, final String product, final int orderQuantity) {
+    public boolean order(final User user, final LocalDateTime orderDate, final String product, final int orderQuantity) {
         System.out.println("Order is being processed for" + " " + user + " " + "placed on" + " " + orderDate + " " + "for" + product + " " + "quantity:" + " " + orderQuantity);
         return true;
     }

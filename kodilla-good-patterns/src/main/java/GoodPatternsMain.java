@@ -7,7 +7,7 @@ public class GoodPatternsMain {
         ProductOrderRetriever orderRetriever = new ProductOrderRetriever();
         ProductOrder productOrder = orderRetriever.retrieve();
 
-        OrderProcessor orderProcessor = new OrderProcessor(new InformationService(), new ProductOrder(productOrder.getUser(), productOrder.getOrderDate(), productOrder.getProduct(), productOrder.getQuantity()), new OrderRepository());
+        OrderProcessor orderProcessor = new OrderProcessor(new InformationTraditional(), new AGDOrderService(), new AGDOrderRepository());
 
         orderProcessor.process(productOrder);
     }

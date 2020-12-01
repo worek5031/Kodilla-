@@ -9,7 +9,7 @@ public class ProductOrder {
     public String product;
     public int quantity;
 
-    public ProductOrder(User user, LocalDateTime orderDate, String product, int quantity) {
+    public ProductOrder(final User user, final LocalDateTime orderDate, final String product, final int quantity) {
         this.user = user;
         this.orderDate = orderDate;
         this.product = product;
