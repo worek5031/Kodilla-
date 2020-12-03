@@ -1,12 +1,18 @@
 package com.kodilla.spring.calculator;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public final class Display {
 
-    public void displayValue() {
-        System.out.println("Wynik kalkulacji to:  ");
+    @Autowired
+    Calculator calculator;
+
+
+    public double displayValue(double val) {
+        calculator.add(8, 4);
+        return val;
     }
 
 }

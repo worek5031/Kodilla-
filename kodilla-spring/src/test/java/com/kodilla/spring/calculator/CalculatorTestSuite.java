@@ -1,5 +1,6 @@
 package com.kodilla.spring.calculator;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,12 +10,21 @@ public class CalculatorTestSuite {
 
     @Autowired
     Calculator calculator;
+    @Autowired
+    Display display;
 
     @Test
     void testCalculations() {
-        calculator.add(8, 4);
-        calculator.sub(8,4);
-        calculator.div(8,4);
-        calculator.mul(8,4);
+        //Given
+        double a = 8;
+        double b = 4;
+
+        //When
+        double calculation = calculator.add(a, b);
+        double result = display.displayValue(calculation);
+
+        //Then
+        Assertions.assertEquals(12, result);
+
     }
 }
