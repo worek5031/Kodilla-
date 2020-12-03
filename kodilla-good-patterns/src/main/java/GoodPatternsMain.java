@@ -1,4 +1,4 @@
-import com.kodilla.good.patterns.challenge.*;
+import com.kodilla.spring.good.patterns.challenge.*;
 
 public class GoodPatternsMain {
 

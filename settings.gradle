@@ -4,4 +4,5 @@ include 'kodilla-stream'
 include 'Kodilla-exception'
 include 'kodilla-good-patterns'
 include 'kodilla-spring-intro'
+include 'kodilla-spring'
 

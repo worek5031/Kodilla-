@@ -1,20 +1,41 @@
-import com.kodilla.spring.intro.shape.Drawer;
+import com.kodilla.spring.spring.intro.shape.Circle;
+import com.kodilla.spring.spring.intro.shape.Drawer;
+import com.kodilla.spring.spring.intro.shape.Triangle;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class DrawerTestSuite {
     @Test
-            void testDoDrawing() {
 
+    void testDoDrawingWithCircle() {
         //Given
-        Drawer drawer = new Drawer();
+        Circle circle = new Circle();
+
+        Drawer drawer = new Drawer(circle);
 
         //When
 
-        drawer.doDrawing();
+        String result = drawer.doDrawing();
 
         //Then
-        //Do nothing
+
+        Assertions.assertEquals("This is a circle", result);
     }
 
+    @Test
 
+    void testDoDrawingWithTriangle() {
+
+        //Given
+
+        Triangle triangle = new Triangle();
+
+        //When
+        Drawer drawer = new Drawer(triangle);
+        String result = drawer.doDrawing();
+
+        //Then
+        Assertions.assertEquals("This is a triangle", result);
+
+    }
 }
