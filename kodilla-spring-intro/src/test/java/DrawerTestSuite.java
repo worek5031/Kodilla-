@@ -35,7 +35,7 @@ public class DrawerTestSuite {
         String result = drawer.doDrawing();
 
         //Then
-        Assertions.assertEquals("This is a triangle", result);
+        Assertions.assertEquals("This is a square", result);
 
     }
 }

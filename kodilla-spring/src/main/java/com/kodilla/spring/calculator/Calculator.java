@@ -9,19 +9,29 @@ public final class Calculator {
     @Autowired
     Display display;
 
-    double a;
-    double b;
-
     public double add(double a, double b) {
-            return a + b;
+        double adding = a + b;
+        display.displayValue(adding);
+        System.out.println(adding);
+        return adding;
     }
     public double sub(double a, double b) {
-        return a - b;
-    }
+        double substract = a - b;
+        display.displayValue(substract);
+        System.out.println(substract);
+        return substract;
+        }
     public double mul(double a, double b) {
-        return a * b;
+        double multiply = a * b;
+        display.displayValue(multiply);
+        System.out.println(multiply);
+        return multiply;
     }
     public double div(double a, double b) {
+        double divided = a / b;
+        display.displayValue(divided);
+        System.out.println(divided);
         return a / b;
     }
+
 }

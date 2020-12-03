@@ -10,9 +10,8 @@ public final class Display {
     Calculator calculator;
 
 
-    public double displayValue(double val) {
-        calculator.add(8, 4);
-        return val;
-    }
+    public void displayValue(double val) {
+        System.out.println("Result is: ");
+            }
 
 }

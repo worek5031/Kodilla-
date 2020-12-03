@@ -6,7 +6,7 @@ public class Triangle implements Shape {
 
     public String draw() {
 
-        System.out.println("This is a triangle");
+        System.out.println("This is a square");
 
         return "This is a triangle";
     }

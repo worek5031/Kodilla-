@@ -10,6 +10,7 @@ public class GoodPatternsMain {
         OrderProcessor orderProcessor = new OrderProcessor(new InformationTraditional(), new AGDOrderService(), new AGDOrderRepository());
 
         orderProcessor.process(productOrder);
+
     }
 
 }
