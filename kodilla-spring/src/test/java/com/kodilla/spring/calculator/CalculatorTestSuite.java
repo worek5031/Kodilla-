@@ -13,8 +13,8 @@ public class CalculatorTestSuite {
     @Test
     void testCalculations() {
         calculator.add(8, 4);
-
-
-
+        calculator.sub(8,4);
+        calculator.div(8,4);
+        calculator.mul(8,4);
     }
 }
