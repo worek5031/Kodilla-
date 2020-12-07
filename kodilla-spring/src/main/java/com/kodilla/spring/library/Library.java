@@ -9,8 +9,7 @@ public final class Library {
     private final List<String> books = new ArrayList<>();
     private LibraryDBController libraryDBController;
 
-
-    public Library(LibraryDBController libraryDBController) {
+    public Library(final LibraryDBController libraryDBController) {
         this.libraryDBController = libraryDBController;
     }
 
