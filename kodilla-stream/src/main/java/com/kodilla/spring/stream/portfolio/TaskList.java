@@ -18,7 +18,7 @@ public class TaskList {
         return tasks.remove(task);
     }
     public List<Task> getTasks() {
-        return new LinkedList<>(tasks);
+        return tasks;
     }
 
     public String getName() {

@@ -1,11 +1,10 @@
 package com.kodilla.patterns.prototype.library;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Library extends Prototype<Library> {
     String name;
-    Set<Book> books = new HashSet<>();
+    List<Book> books = new LinkedList<>();
 
     public Library(final String name) {
         this.name = name;
@@ -19,7 +18,7 @@ public class Library extends Prototype<Library> {
         return name;
     }
 
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
@@ -29,7 +28,7 @@ public class Library extends Prototype<Library> {
 
     public Library deepCopy() throws  CloneNotSupportedException {
         Library cloneLibrary = super.clone();
-        cloneLibrary.books = new HashSet<>();
+        cloneLibrary.books = new LinkedList<>();
         for (Book theBooks : books) {
             Book cloneBooks = new Book(theBooks.getTitle(), theBooks.getAuthor(), theBooks.getPublicationDate());
             cloneLibrary.getBooks().add(theBooks);

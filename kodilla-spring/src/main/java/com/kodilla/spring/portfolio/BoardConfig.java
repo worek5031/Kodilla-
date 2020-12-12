@@ -12,11 +12,13 @@ import java.util.List;
 public class BoardConfig {
 
     @Autowired
-
-            @Qualifier("inProgressList")
-
+    @Qualifier("toDoList")
     TaskList toDoList;
+    @Autowired
+    @Qualifier("inProgressList")
     TaskList inProgressList;
+    @Autowired
+    @Qualifier("doneList")
     TaskList doneList;
 
 

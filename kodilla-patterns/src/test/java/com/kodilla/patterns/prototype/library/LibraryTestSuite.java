@@ -11,7 +11,7 @@ public class LibraryTestSuite {
     void testGetBooks() {
 
         //Given
-        Library library = new Library("Biblioteka1");
+        Library library = new Library("Library Wrocław");
 
         Book bible1 = new Book("Bible1", "Lukas", LocalDate.of(2020, 12, 01));
         Book bible2 = new Book("Bible2", "Mathew", LocalDate.of(2020, 12, 02));
@@ -22,6 +22,14 @@ public class LibraryTestSuite {
         library.getBooks().add(bible2);
         library.getBooks().add(bible3);
         library.getBooks().add(bible4);
+
+        Library library1 = new Library("Library Poznań");
+
+        Book koran1 = new Book("Koran1", "Mohamet1", LocalDate.of(2019, 12, 01));
+        Book koran2 = new Book("Koran2", "Mohamet2", LocalDate.of(2019,12,02));
+
+        library1.getBooks().add(koran1);
+        library1.getBooks().add(koran2);
 
         //create clone
         Library cloneLibrary = null;
@@ -36,13 +44,14 @@ public class LibraryTestSuite {
         Library deepCloneLibrary = null;
                 try {
                     deepCloneLibrary = library.deepCopy();
-                    deepCloneLibrary.setName("Biblioteka 3");
+                    deepCloneLibrary.setName("Biblioteka3");
                 } catch(CloneNotSupportedException e) {
                     System.out.println(e);
         }
 
         //When
         library.getBooks().remove(bible1);
+                deepCloneLibrary.getBooks().remove(bible1);
 
         int result = library.getBooks().size();
         int cloneResult = cloneLibrary.getBooks().size();
@@ -53,10 +62,11 @@ public class LibraryTestSuite {
         //Then
         Assertions.assertEquals(3, result);
         Assertions.assertEquals(3, cloneResult);
-        Assertions.assertEquals(4, deepCloneResult);
+        Assertions.assertEquals(3, deepCloneResult);
         System.out.println(library.getName() + library.getBooks());
         System.out.println(cloneLibrary.getName() + cloneLibrary.getBooks());
         System.out.println(deepCloneLibrary.getName() + deepCloneLibrary.getBooks());
+        System.out.println(library1.getName() + library1.getBooks());
 
 
 

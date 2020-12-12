@@ -67,8 +67,8 @@ public class BoardTestSuite {
                 LocalDate.now().minusDays(2));
         //TaskLists
         TaskList taskListToDo = new TaskList("To Do");
-        taskListToDo.addTask(task1);
-        taskListToDo.addTask(task3);
+        taskListToDo.getTasks().add(task1);
+        taskListToDo.getTasks().add(task2);
         TaskList taskListInProgress = new TaskList("In progress");
         taskListInProgress.addTask(task5);
         taskListInProgress.addTask(task4);
@@ -82,6 +82,7 @@ public class BoardTestSuite {
         project.addTaskList(taskListDone);
 
         return project;
+
     }
 
     @Test
