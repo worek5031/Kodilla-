@@ -49,20 +49,20 @@ public class DbManagerTestSuite {
             //When
             String sqlQuery = "select u.lastname, u.firstname, p.user_id, count(*) as Post_Qty\n" +
                     "from users u join posts p on u.id = p.user_id\n" +
-                    "group by p.user_id\n" +
-                    "having count(*)>=2";
+                    "group by u.id\n" +
+                    "having count(*)>=0";
             Statement statement = dbManager.getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(sqlQuery);
 
             //Then
-            int counter = 0;
+            int count = 0;
             while (resultSet.next()) {
                 System.out.println(
                         resultSet.getString("FIRSTNAME") + ", " +
                         resultSet.getString("LASTNAME"));
-                counter++;
+                count++;
             }
-
-            Assertions.assertEquals(1, counter);
+            //Then
+            Assertions.assertEquals(3, count);
         }
     }
