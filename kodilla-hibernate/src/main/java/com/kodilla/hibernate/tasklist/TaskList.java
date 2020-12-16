@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "TASK LIST")
+@Table(name = "TASKLIST")
 public class TaskList {
 
     private int id;
@@ -49,4 +49,5 @@ public class TaskList {
     public void setDescription(String description) {
         this.description = description;
     }
-}
+
+   }

@@ -20,7 +20,6 @@ public class TaskListDaoTestSuite {
     void testFindByListName() {
         //Given
         TaskList taskList = new TaskList(LISTNAME, DESCRIPTION);
-        int id = taskList.getId();
         String listName = taskList.getListName();
 
         //When
@@ -28,9 +27,11 @@ public class TaskListDaoTestSuite {
 
         //Then
         List<TaskList> result = taskListDao.findByListName(listName);
-        Assertions.assertEquals("To Do Task", result);
+        Assertions.assertEquals(1, result.size());
 
-        //Clean
-        taskListDao.deleteById(id);
+        //Cleanup
+        taskListDao.deleteById(taskList.getId());
+
+
     }
 }
