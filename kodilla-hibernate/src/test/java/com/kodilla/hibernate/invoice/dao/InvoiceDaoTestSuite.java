@@ -25,10 +25,10 @@ public class InvoiceDaoTestSuite {
         Product asusLaptop = new Product("Asus laptop");
         Product hpLaptop = new Product("HP laptop");
 
-        Item pos1 = new Item(lenovoLaptop, new BigDecimal(1600), 5, new BigDecimal(8000));
-        Item pos2 = new Item(dellLaptop, new BigDecimal(2400), 3, new BigDecimal(7200));
-        Item pos3 = new Item(asusLaptop, new BigDecimal(1100), 7, new BigDecimal(7700));
-        Item pos4 = new Item(hpLaptop, new BigDecimal(3200), 4, new BigDecimal(12800));
+        Item pos1 = new Item(new BigDecimal(1600), 5, new BigDecimal(8000));
+        Item pos2 = new Item(new BigDecimal(2400), 3, new BigDecimal(7200));
+        Item pos3 = new Item(new BigDecimal(1100), 7, new BigDecimal(7700));
+        Item pos4 = new Item(new BigDecimal(3200), 4, new BigDecimal(12800));
 
         Invoice nr2020121701 = new Invoice("2020121701");
         Invoice nr2020121702 = new Invoice("2020121702");
@@ -42,15 +42,10 @@ public class InvoiceDaoTestSuite {
         int id = nr2020121701.getId();
 
         //Then
-        Assertions.assertEquals(56, id);
+        Assertions.assertEquals(68, id);
 
         //Cleanup
-        invoiceDao.deleteById(id);
-
-
-
-
-
+        //invoiceDao.deleteById(id);
 
     }
 
