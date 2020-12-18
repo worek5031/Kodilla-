@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "PRODUCTS")
 public class Product {
 
     private int id;
     private String name;
-    List<Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     @OneToMany(targetEntity = Item.class, mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Item> getItems() {

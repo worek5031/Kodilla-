@@ -12,7 +12,7 @@ public class Invoice {
 
     private int id;
     private String number;
-    List<Item> items = new ArrayList<>();
+    List<Item> items2 = new ArrayList<>();
 
     public Invoice() {
     }
@@ -45,10 +45,10 @@ public class Invoice {
 
     @OneToMany(targetEntity = Item.class , mappedBy = "invoice" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Item> getItems() {
-        return items;
+        return items2;
     }
 
     public void setItems(List<Item> items) {
-        this.items = items;
+        this.items2 = items2;
     }
 }

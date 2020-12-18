@@ -15,7 +15,10 @@ public class InvoiceDaoTestSuite {
 
     @Autowired
     public InvoiceDao invoiceDao;
-
+    @Autowired
+    public ProductDao productDao;
+    @Autowired
+    public ItemDao itemDao;
 
     @Test
     void testInvoiceDaoSaved() {
@@ -25,27 +28,47 @@ public class InvoiceDaoTestSuite {
         Product asusLaptop = new Product("Asus laptop");
         Product hpLaptop = new Product("HP laptop");
 
-        Item pos1 = new Item(new BigDecimal(1600), 5, new BigDecimal(8000));
-        Item pos2 = new Item(new BigDecimal(2400), 3, new BigDecimal(7200));
-        Item pos3 = new Item(new BigDecimal(1100), 7, new BigDecimal(7700));
-        Item pos4 = new Item(new BigDecimal(3200), 4, new BigDecimal(12800));
+        Item pos2020121701001 = new Item(lenovoLaptop, new BigDecimal(1600), 5, new BigDecimal(8000));
+        Item pos2020121701002 = new Item(dellLaptop, new BigDecimal(2400), 3, new BigDecimal(7200));
+        Item pos2020121702001 = new Item(asusLaptop, new BigDecimal(1100), 7, new BigDecimal(7700));
+        Item pos2020121702002 = new Item(hpLaptop, new BigDecimal(3200), 4, new BigDecimal(12800));
+
+        hpLaptop.getItems().add(pos2020121701001);
+        //hpLaptop.getItems().add(pos2020121702001);
+        asusLaptop.getItems().add(pos2020121701002);
+        //dellLaptop.getItems().add(pos2020121702002);
+
+        pos2020121701001.setProduct(lenovoLaptop);
+        pos2020121701002.setProduct(dellLaptop);
+        //pos2020121702001.setProduct(lenovoLaptop);
+        //pos2020121702002.setProduct(hpLaptop);
 
         Invoice nr2020121701 = new Invoice("2020121701");
-        Invoice nr2020121702 = new Invoice("2020121702");
-        nr2020121701.getItems().add(pos1);
-        nr2020121701.getItems().add(pos2);
-        nr2020121702.getItems().add(pos3);
-        nr2020121702.getItems().add(pos4);
+        //Invoice nr2020121702 = new Invoice("2020121702");
+
+        nr2020121701.getItems().add(pos2020121701001);
+        nr2020121701.getItems().add(pos2020121701002);
+        //nr2020121702.getItems().add(pos2020121702001);
+        //nr2020121702.getItems().add(pos2020121702002);
+
+        pos2020121701001.setInvoice(nr2020121701);
+        pos2020121701002.setInvoice(nr2020121701);
+        //pos2020121702001.setInvoice(nr2020121702);
+        //pos2020121702002.setInvoice(nr2020121702);
 
         //When
         invoiceDao.save(nr2020121701);
-        int id = nr2020121701.getId();
+
+        int id1 = nr2020121701.getId();
+
 
         //Then
-        Assertions.assertEquals(68, id);
+        Assertions.assertEquals(151, id1);
 
         //Cleanup
-        //invoiceDao.deleteById(id);
+        invoiceDao.deleteById(id1);
+
+
 
     }
 
